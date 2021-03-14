@@ -2,26 +2,30 @@ class Note {
     constructor(title) {
       this.title = title;
       // HINT🤩 this.element = this.createElement(title);
+      this.element = this.createElement(this.title);
     }
   
     createElement(title) {
       let newNote = document.createElement("li");
   
       // HINT🤩 newNote.addEventListener('click', this.remove.bind(newNote));
-  
+
+      newNote.innerHTML = title;
+      newNote.addEventListener('click', this.remove.bind(newNote));
       return newNote;
     }
   
     add() {
       // HINT🤩
       // this function should append the note to the screen somehow
+      document.querySelector('#taskList').appendChild(this.element);
     }
   
     saveToStorage() {
       // HINT🤩
       // localStorage only supports strings, not arrays
       // if you want to store arrays, look at JSON.parse and JSON.stringify
-    }
+      
   
     remove() {
       // HINT🤩 the meaning of 'this' was set by bind() in the createElement function
