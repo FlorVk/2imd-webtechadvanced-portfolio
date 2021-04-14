@@ -3,27 +3,14 @@ body {
     margin: 0;
 }
 
-body::after {
-    background-image: url(https://images.pexels.com/photos/1540406/pexels-photo-1540406.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500);
-    opacity: 0.5;
-    content: "";
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 200%;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-
 
 .grid {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(3, 0.5fr);
+    background-image: url(https://images.pexels.com/photos/1540338/pexels-photo-1540338.jpeg?cs=srgb&dl=pexels-wendy-wei-1540338.jpg&fm=jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
     
 }
 
