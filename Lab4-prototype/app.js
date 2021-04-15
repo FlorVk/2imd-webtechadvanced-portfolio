@@ -44,6 +44,21 @@ class Weather {
                 console.log(err);
             });
     }
+
+    getActivity(setData) {
+        let url_warm = `http://www.boredapi.com/api/activity?type=social`;
+        fetch(url_warm)
+            .then(response => {
+                return response.json();
+            })
+            .then(data => {
+                let activity = data.activity;
+                document.querySelector("#activity").innerHTML=`You should try: ${activity}`;
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    }
 }
 
 let app = new Weather();
