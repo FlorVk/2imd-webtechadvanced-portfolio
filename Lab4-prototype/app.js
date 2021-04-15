@@ -21,18 +21,19 @@ class Weather {
 
     getWeather(){
         let url = `http://api.weatherapi.com/v1/current.json?key=55c87db86dbd451aa2f144238211404&q=${this.lat},${this.lng}`;
-        
-        
+          
         fetch(url)
             .then(response => {
                 return response.json();
             })
             .then(data => {
                 let weather = data.current.condition.text;
+                //let temperature = 20;
                 let temperature = data.current.temp_c;
                 
                 document.querySelector("#weather").innerHTML=`${weather}! It's ${temperature} °C outside!`;
                 
+
                 if (temperature < 15){
                     document.querySelector("#comment_weather").innerHTML=`That's a bit chilly!`;
                 }
@@ -43,6 +44,19 @@ class Weather {
             .catch(err => {
                 console.log(err);
             });
+    }
+
+    dataSetter(temperature){
+        if(temperature <= 15){
+            let setData = "cold";
+            console.log(temperature);
+            return setData;
+        }
+        else {
+            let setData = "warm";
+            console.log(temperature);
+            return setData;
+        }
     }
 
     getActivity(setData) {
