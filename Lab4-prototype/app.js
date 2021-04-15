@@ -32,7 +32,7 @@ class Weather {
                 let temperature = data.current.temp_c;
                 
                 document.querySelector("#weather").innerHTML=`${weather}! It's ${temperature} °C outside!`;
-                
+                this.getActivity(this.dataSetter(temperature));
 
                 if (temperature < 15){
                     document.querySelector("#comment_weather").innerHTML=`That's a bit chilly!`;
@@ -60,14 +60,27 @@ class Weather {
     }
 
     getActivity(setData) {
-        let url_warm = `http://www.boredapi.com/api/activity?type=social`;
+        let type;
+        if (setData === "cold"){
+            type = "social";
+            console.log(type);
+            console.log(setData);
+
+        }
+        else if (setData === "warm") {
+            type = "recreational";
+            console.log(type);
+            console.log(setData);
+        }
+
+        let url_warm = `http://www.boredapi.com/api/activity?type=${type}`;
         fetch(url_warm)
             .then(response => {
                 return response.json();
             })
             .then(data => {
                 let activity = data.activity;
-                document.querySelector("#activity").innerHTML=`You should try: ${activity}`;
+                document.querySelector("#activity").innerHTML=`You should try: ${activity} !`;
             })
             .catch(err => {
                 console.log(err);
