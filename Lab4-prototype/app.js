@@ -49,12 +49,10 @@ class Weather {
     dataSetter(temperature){
         if(temperature <= 15){
             let setData = "cold";
-            console.log(temperature);
             return setData;
         }
         else {
             let setData = "warm";
-            console.log(temperature);
             return setData;
         }
     }
@@ -63,14 +61,11 @@ class Weather {
         let type;
         if (setData === "cold"){
             type = "social";
-            console.log(type);
-            console.log(setData);
-
+            document.querySelector(".background").style.backgroundImage = `url('https://source.unsplash.com/1600x900/?indoors')`;
         }
         else if (setData === "warm") {
             type = "recreational";
-            console.log(type);
-            console.log(setData);
+            document.querySelector(".background").style.backgroundImage = `url('https://source.unsplash.com/1600x900/?outdoors')`;
         }
 
         let url_warm = `http://www.boredapi.com/api/activity?type=${type}`;
